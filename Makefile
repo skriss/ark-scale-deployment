@@ -14,11 +14,11 @@
 
 BINS = $(wildcard ark-*)
 
-REPO ?= github.com/heptio/ark-plugin-example
+REPO ?= github.com/skriss/ark-scale-deployment
 
 BUILD_IMAGE ?= golang:1.10-alpine3.7
 
-IMAGE ?= gcr.io/heptio-images/ark-plugin-example
+IMAGE ?= steveheptio/ark-scale-deployment:latest
 
 ARCH ?= amd64
 
