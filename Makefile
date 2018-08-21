@@ -16,7 +16,7 @@ BINS = $(wildcard ark-*)
 
 REPO ?= github.com/heptio/ark-plugin-example
 
-BUILD_IMAGE ?= gcr.io/heptio-images/golang:1.9-alpine3.6
+BUILD_IMAGE ?= golang:1.10-alpine3.7
 
 IMAGE ?= gcr.io/heptio-images/ark-plugin-example
 
