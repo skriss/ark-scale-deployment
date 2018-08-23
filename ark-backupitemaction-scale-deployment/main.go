@@ -47,12 +47,12 @@ func (p *ScaleDeploymentsToZeroReplicas) AppliesTo() (backup.ResourceSelector, e
 	}, nil
 }
 
-// Execute sets .spec.replicas to "0".
+// Execute sets .spec.replicas to 0.
 func (p *ScaleDeploymentsToZeroReplicas) Execute(item runtime.Unstructured, backup *v1.Backup) (runtime.Unstructured, []backup.ResourceIdentifier, error) {
 	p.log.Info("Running ScaleDeploymentsToZeroReplicas backup item action")
 	defer p.log.Info("Done running ScaleDeploymentsToZeroReplicas backup item action")
 
-	if err := unstructured.SetNestedField(item.UnstructuredContent(), "0", "spec", "replicas"); err != nil {
+	if err := unstructured.SetNestedField(item.UnstructuredContent(), int64(0), "spec", "replicas"); err != nil {
 		p.log.WithError(err).Error("Error setting .spec.replicase")
 		return nil, nil, err
 	}
